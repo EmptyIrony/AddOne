@@ -1,0 +1,80 @@
+// For those who want the bleeding edge
+buildscript {
+    repositories {
+
+        jcenter()
+
+        maven{ url 'https://maven.aliyun.com/repository/google'}
+        maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven{ url 'https://maven.aliyun.com/repository/public'}
+        maven{ url 'https://maven.aliyun.com/repository/jcenter'}
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+
+        classpath 'com.guardsquare:proguard-gradle:7.0.0'
+
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            dependencySubstitution {
+                substitute module('net.sf.proguard:proguard-gradle') with module('com.guardsquare:proguard-gradle:7.0.0')
+            }
+        }
+    }
+
+}
+
+
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'java'
+
+
+
+compileJava {
+    options.compilerArgs << '-parameters'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.encoding="UTF-8"
+}
+
+
+
+version = "1.0"
+group= "me.cuznai.addone" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "AddOne"
+
+minecraft {
+    version = "1.8.9-11.15.1.1902-1.8.9"
+    runDir = "run"
+
+    mappings = "stable_20"
+    makeObfSourceJar = false //不构建sources文件 会快一些:3
+}
+
+
+
+dependencies {
+    repositories {
+
+        jcenter()
+
+        maven{ url 'https://maven.aliyun.com/repository/google'}
+        maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven{ url 'https://maven.aliyun.com/repository/public'}
+        maven{ url 'https://maven.aliyun.com/repository/jcenter'}
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+
+    }
+
+}

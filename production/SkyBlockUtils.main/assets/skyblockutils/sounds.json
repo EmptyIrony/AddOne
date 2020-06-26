@@ -1,0 +1,26 @@
+{
+  "fish.legend": {
+    "category": "player",
+    "sounds": [
+      "legend"
+    ]
+  },
+  "fish.rare": {
+    "category": "player",
+    "sounds": [
+      "rare"
+    ]
+  },
+  "end.enderman": {
+    "category": "player",
+    "sounds": [
+      "enderman"
+    ]
+  },
+  "notify.admin": {
+    "category": "player",
+    "sounds": [
+      "admin"
+    ]
+  }
+}
