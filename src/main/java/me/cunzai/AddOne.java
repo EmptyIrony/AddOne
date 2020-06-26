@@ -69,9 +69,6 @@ public class AddOne {
             need = "§f:";
         }
 
-        System.out.println(text);
-        System.out.println(i);
-
 
         String stripColor = stripColor(text);
         int state;
