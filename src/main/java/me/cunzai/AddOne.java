@@ -54,15 +54,23 @@ public class AddOne {
     @SubscribeEvent
     public void onChat(ClientChatReceivedEvent event) {
         String text = event.message.getFormattedText();
+        String need;
         int i = text.indexOf("§f:");
         if (i == -1) {
             i = text.indexOf("§7:");
 
             if (i == -1) {
                 return;
+            } else {
+                need = "§7:";
             }
 
+        } else {
+            need = "§f:";
         }
+
+        System.out.println(text);
+        System.out.println(i);
 
 
         String stripColor = stripColor(text);
@@ -82,7 +90,7 @@ public class AddOne {
             state = 0;
         }
 
-        String s = stripColor(text.substring(i));
+        String s = stripColor(text.replace(need + " ", "").substring(i));
 
         ChatComponentText components = new ChatComponentText(translate(" &6[+1]"));
         ChatStyle style = new ChatStyle();
